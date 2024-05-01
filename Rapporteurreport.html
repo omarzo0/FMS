@@ -31,42 +31,34 @@
       <div class="header">
         <h2>Rapporteur report</h2>
         <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Select Year
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <input
-              type="text"
-              class="yearpicker form-control"
-              placeholder="Select year range"
-            />
-          </div>
+          <ul class="menu">
+            <li>
+              <div class="dropdown-header">
+                <a href="#">
+                  <span class="dropdown-text">select year</span>
+                </a>
+                <i class="bx bxs-chevron-down arrow"></i>
+              </div>
+              <ul class="sub-menu" id="teaching-dropdown">
+                <!-- Dropdown options will be added dynamically here -->
+              </ul>
+            </li>
+          </ul>
         </div>
         <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            select course
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <input
-              type="text"
-              class="yearpicker form-control"
-              placeholder="Select year range"
-            />
-          </div>
+          <ul class="menu">
+            <li>
+              <div class="dropdown-header">
+                <a href="#">
+                  <span class="dropdown-text">select course</span>
+                </a>
+                <i class="bx bxs-chevron-down arrow"></i>
+              </div>
+              <ul class="sub-menu" id="teaching-dropdown">
+                <!-- Dropdown options will be added dynamically here -->
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

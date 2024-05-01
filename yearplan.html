@@ -30,25 +30,23 @@
     <div class="main-body">
       <div class="header">
         <h2>Yearly plan</h2>
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Select Year
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <input
-              type="text"
-              class="yearpicker form-control"
-              placeholder="Select year range"
-            />
-          </div>
-        </div>
+      </div>
+      <div class="dropdown">
+        <ul class="menu">
+          <li>
+            <div class="dropdown-header">
+              <a href="#">
+                <span class="dropdown-text">select year</span>
+              </a>
+              <i class="bx bxs-chevron-down arrow"></i>
+            </div>
+            <ul class="sub-menu" id="teaching-dropdown">
+              <!-- Dropdown options will be added dynamically here -->
+            </ul>
+          </li>
+        </ul>
+      </div>
+
       <div class="dropdown">
         <h3>First - Teaching</h3>
         <ul class="menu">
@@ -294,5 +292,20 @@
         });
       });
     });
+  </script>
+  <script>
+    // Function to generate dropdown options with time
+    function generateDropdownOptions(startYear, endYear, dropdownId) {
+      const dropdown = document.getElementById(dropdownId);
+      for (let year = startYear; year <= endYear; year++) {
+        const option = document.createElement("li");
+        option.innerHTML = `<a href="#">${year}</a>`;
+        dropdown.appendChild(option);
+      }
+    }
+
+    // Add time options to each dropdown
+    generateDropdownOptions(2021, 2030, "teaching-dropdown");
+    // Add time options to other dropdowns similarly
   </script>
 </html>

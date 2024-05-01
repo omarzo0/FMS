@@ -685,6 +685,7 @@ th {
 .mb-5 {
   margin-right: -320px;
 }
+
 /* Dropdown Styles */
 .dropdown {
   margin-bottom: 20px;
@@ -742,4 +743,67 @@ th {
 
 .sub-menu li a:hover {
   background-color: #f5f5f5;
+}
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-header1 {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-header1:hover {
+  background-color: #e0e0e0;
+}
+
+.dropdown-header1 a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.arrow1 {
+  margin-left: auto;
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.dropdown-header1:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.sub-menu1 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.sub-menu1 li {
+  padding: 10px;
+}
+
+.sub-menu1 li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.sub-menu1 li a:hover {
+  background-color: #f0f0f0;
 }
