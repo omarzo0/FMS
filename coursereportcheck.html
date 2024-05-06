@@ -28,7 +28,109 @@
   <body>
     <!-- main body section -->
     <div class="main-body">
-     
+      <div class="header">
+        <h2>Course Report Checklist</h2>
+      </div>
+      <div class="dropdown">
+        <ul class="menu">
+          <li>
+            <div class="dropdown-header">
+              <a href="#">
+                <span class="dropdown-text">select year</span>
+              </a>
+              <i class="bx bxs-chevron-down arrow"></i>
+            </div>
+            <ul class="sub-menu" id="teaching-dropdown">
+              <!-- Dropdown options will be added dynamically here -->
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Items</th>
+            <th scope="col">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Course Title</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Code</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Specialty</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Number of contact hours/week</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Number of credit hours</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Topics actually taught</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Student assessment</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Administrative constraints</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Results of students feedback on the course</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Proposals for course improvements</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Comments of external reviewers</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              Progress on actions identified in the previous year’s action plan
+            </th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Improvements that were not implemented</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Action plan</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Course Director</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Signature:</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Date of approval</th>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="input-field">
+        <input type="submit" class="submit" value="Submit" />
+      </div>
+    </div>
     <!-- Vertical navbar section  -->
     <section class="nav-bar">
       <div class="menu-toggle">
@@ -190,110 +292,44 @@
         </ul>
       </div>
     </section>
-            <!-- main body section -->
-            <div class="student-container">
-                <div class="st-left">
-                    <div class="left-head">
-                        <div class="profile">
-                            <img class="profile-image" src="img/dp.PNG" alt="">
-                        </div> 
-                        <div class="name">           
-                        <strong></strong>
-                        </div>
-    
-                    </div>
-                    <div class="left-body">
-                        <p class="field"><strong>professor Id:</strong>12</p>
-                        <p class="field"><strong>faculty:</strong>CSE</p>
-                        <p class="field"><strong>Program:</strong>CS</p>
-                    </div>
-                </div>
-                <div class="st-right">
-                    <p class="field1"><strong>General Information</strong></p>
-                    <table class="profile-table">
-                        <tr>
-                            <th><strong>first name</strong></th>
-                            <td>omar</td>
-                        </tr>
-                        <tr>
-                            <th><strong>middle name</strong></th>
-                            <td>khaled</td>
-                        </tr>
-                        <tr>
-                            <th><strong>last name</strong></th>
-                            <td>masoud</td>
-                        </tr>
-                        <tr>
-                            <th><strong>Birth Date</strong></th>
-                            <td>03/12/2003</td>
-                        </tr>
-                        <tr>
-                            <th><strong>Gender</strong></th>
-                            <td>Male</td>
-                        </tr>
-                        <tr>
-                            <th><strong>personal email</strong></th>
-                            <td>2233445566</td>
-                        </tr>
-                        
-                        <tr>
-                            <th><strong>contact.no</strong></th>
-                            <td>A+</td>
-                        </tr>
-                        <tr>
-                            <th><strong>GU email</strong></th>
-                            <td>egyptian</td>
-                        </tr>
-                        <tr>
-                            <th><strong>Address</strong></th>
-                            <td>thanwya aama</td>
-                        </tr>
-                   
-                       
-                        
-                    </table>
-                    
-                </div>
-            </div>
-           
   </body>
   <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-  crossorigin="anonymous"
-></script>
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e) => {
-      let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
-      arrowParent.classList.toggle("showMenu");
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e) => {
+        let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+        arrowParent.classList.toggle("showMenu");
+      });
+    }
+    const menu_toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    menu_toggle.addEventListener("click", () => {
+      menu_toggle.classList.toggle("is-active");
+      sidebar.classList.toggle("is-active");
     });
-  }
-  const menu_toggle = document.querySelector(".menu-toggle");
-  const sidebar = document.querySelector(".sidebar");
 
-  menu_toggle.addEventListener("click", () => {
-    menu_toggle.classList.toggle("is-active");
-    sidebar.classList.toggle("is-active");
-  });
-
-  function showConfirmation() {
-    Swal.fire({
-      title: "Sign out?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Submit the form
-        window.location.href = "index.html";
-      }
-    });
-  }
-</script>
+    function showConfirmation() {
+      Swal.fire({
+        title: "Sign out?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Submit the form
+          window.location.href = "index.html";
+        }
+      });
+    }
+  </script>
 </html>
