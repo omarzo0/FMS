@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="shortcut icon" type="x-icon" href="/img/ImageHandler (1).png" />
 
-    <title>Admin-dashboard</title>
+    <title>Admin</title>
   </head>
 
   <body>
@@ -90,7 +90,7 @@
           </li>
           <li>
             <div class="iocn-link">
-              <a href="coursefilecontent.html">
+              <a href="/admin/coursefilecontent.html">
                 <i class="bx bxs-user-plus bx-sm"></i>
                 <span class="link_name">content of course</span>
               </a>
@@ -98,17 +98,19 @@
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="coursereportcheck.html" class="sub-list"
+                <a href="/admin/coursereportcheck.html" class="sub-list"
                   >course file checklist</a
                 >
               </li>
               <li>
-                <a href="coursematrix&ILO.html" class="sub-list"
+                <a href="/admin/coursematrix&ILO.html" class="sub-list"
                   >course matrix Topics</a
                 >
               </li>
               <li>
-                <a href="coursereport.html" class="sub-list">course report</a>
+                <a href="/admin/coursereport.html" class="sub-list"
+                  >course report</a
+                >
               </li>
             </ul>
           </li>
@@ -122,12 +124,12 @@
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="Qforstudent.html" class="sub-list"
+                <a href="/admin/Qforstudent.html" class="sub-list"
                   >Questionnaires for student</a
                 >
               </li>
               <li>
-                <a href="Qofvisionstaff.html" class="sub-list"
+                <a href="/admin/Qofvisionstaff.html" class="sub-list"
                   >Questionnaires for staff</a
                 >
               </li>
@@ -143,43 +145,43 @@
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="relationshipcourse.html.html" class="sub-list"
+                <a href="/admin/relationshipcourse.html" class="sub-list"
                   >RelationShip matrix for courses</a
                 >
               </li>
               <li>
-                <a href="relationshipNARS.html.html" class="sub-list"
+                <a href="/admin/relationshipNARS.html" class="sub-list"
                   >RelationShip matrix for NARS</a
                 >
               </li>
             </ul>
           </li>
           <li>
-            <a href="ass&ILOs.html">
+            <a href="/admin/ass&ILOs.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Assessment & ILOs</span>
             </a>
           </li>
           <li>
-            <a href="bluerpint.html">
+            <a href="/admin/bluerpint.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Blueprint Written</span>
             </a>
           </li>
           <li>
-            <a href="Lmetthod&ILOs.html">
+            <a href="/admin/Lmetthod&ILOs.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Teaching & Learning Matrix</span>
             </a>
           </li>
           <li>
-            <a href="coursespec.html">
+            <a href="/admin/coursespec.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Course Specification</span>
             </a>
           </li>
           <li>
-            <a href="arsnars.html">
+            <a href="/admin/arsnars.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">ARS / NARS</span>
             </a>
@@ -193,7 +195,7 @@
               <div class="profile-content">
                 <img
                   style="background-color: white"
-                  src="img/administrator.png"
+                  src="/img/administrator.png"
                   alt="Administrator"
                 />
               </div>
@@ -224,7 +226,6 @@
     ></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
       let arrow = document.querySelectorAll(".arrow");
       for (var i = 0; i < arrow.length; i++) {
@@ -252,7 +253,7 @@
         }).then((result) => {
           if (result.isConfirmed) {
             // Submit the form
-            document.querySelector("form").submit();
+            window.location.href = "/index.html";
           }
         });
       }
