@@ -2,7 +2,12 @@
 CREATE TABLE PositionEvaluation (
     uName NVARCHAR(100),
     YearLevel NVARCHAR(50),
-    Position NVARCHAR(50),
+    prof BIT,
+    assistant_prof BIT,
+    assistant_Lecturer BIT,
+    Lecturer BIT,
+    TA BIT
+
    
 );
 CREATE TABLE UniversityVision (
@@ -11,12 +16,10 @@ CREATE TABLE UniversityVision (
     Agree BIT,
     Neutral BIT,
     Disagree BIT,
-    StronglyDisagree BIT
-    
--- Insert sample data into the table
-INSERT INTO UniversityVision (Statement, StronglyAgree, Agree, Neutral, Disagree, StronglyDisagree)
-VALUES 
-('The vision of the university is clear and appropriate.', 1, 0, 1, 0, 0);
+    StronglyDisagree BIT,
+    suggestions NVARCHAR(255)
+
+ 
 );
 
 

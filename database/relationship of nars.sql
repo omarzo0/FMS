@@ -1,6 +1,7 @@
 CREATE TABLE coursecontent (
     Week INT,
-    CourseTopics VARCHAR(255) primary key,
+    NARS VARCHAR(255) primary key,
+
     KnowledgeUnderstanding_a1 bit,
     KnowledgeUnderstanding_a2 bit,
 	KnowledgeUnderstanding_a3 bit,

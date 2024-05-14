@@ -50,7 +50,7 @@ CREATE TABLE matrix_topics (
 
 
 CREATE TABLE Course_basic_Information (
-    CourseID INT PRIMARY KEY IDENTITY(1,1),
+    CourseID INT FOREIGN KEY REFERENCES Course_file_Checklist(CourseID),
     Faculty NVARCHAR(100),
     Department NVARCHAR(100),
     Division NVARCHAR(100),
@@ -64,7 +64,7 @@ CREATE TABLE Course_basic_Information (
 );
 
 CREATE TABLE course_statistical_informatiobn (
-    CourseID INT FOREIGN KEY REFERENCES Course_basic_Information(CourseID),
+    CourseID INT FOREIGN KEY REFERENCES Course_file_Checklist(CourseID),
     NO_of_student_enrolled_in_the_course: INT,
     NO_of_student_completing_in_the_course INT,
     Passed INT,
@@ -90,7 +90,7 @@ CREATE TABLE  Course_Teaching (
 
 
 
-CREATE TABLE  Teaching_Learning_Methods: (
+CREATE TABLE  Teaching_Learning_Methods (
 
     TeachingMethods NVARCHAR(MAX),
     Traditional_Lectures NVARCHAR(MAX),
@@ -159,3 +159,12 @@ CREATE TABLE CourseActionPlan (
     CompletionDate DATE
 );
 
+CREATE TABLE submitter (
+    Course_Director NVARCHAR(64),
+    Head_of_Department NVARCHAR(64),
+    Date_of_Approval NVARCHAR(64),
+    Head_of_Department NVARCHAR(64),
+    Signaturee NVARCHAR(64)
+
+
+);
