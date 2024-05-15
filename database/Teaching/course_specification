@@ -1,0 +1,147 @@
+CREATE TABLE CourseIdentification (
+    CourseCode VARCHAR(50) PRIMARY KEY,
+    CourseTitle VARCHAR(255),
+    Semester VARCHAR(50),
+    AcademicYear VARCHAR(50),
+    University VARCHAR(255)
+);
+
+
+CREATE TABLE CourseInformation (
+    CourseCode VARCHAR(50),
+    CreditHours INT,
+    LecturesPerWeek VARCHAR(50),
+    PracticalClinicalPerWeek VARCHAR(50),
+    Requiredd VARCHAR(50),
+    Elective VARCHAR(50),
+    Course_goals VARCHAR(255),
+
+    FOREIGN KEY (CourseCode) REFERENCES CourseIdentification(CourseCode)
+
+);
+
+CREATE TABLE CourseRequirements (
+    CourseCode VARCHAR(50),
+    CourseType VARCHAR(50),
+    Leveel VARCHAR(50),
+    Prerequisite VARCHAR(255),
+    FOREIGN KEY (CourseCode) REFERENCES CourseIdentification(CourseCode)
+);
+
+
+CREATE TABLE Knowledge_Understanding (
+    ILOS VARCHAR(50) PRIMARY KEY,
+    Aligned_with_PLOS BIT,
+    Teaching_Methods BIT,
+    Assessment_Methods BIT
+  
+);
+
+INSERT INTO Knowledge_Understanding (ILOS) 
+VALUES 
+    ('3.a.1'),
+    ('3.a.2'),
+    ('3.a.3'),
+    ('3.a.4');
+
+CREATE TABLE Intellectual_Skills (
+    ILOS VARCHAR(50) PRIMARY KEY,
+    Aligned_with_PLOS BIT,
+    Teaching_Methods BIT,
+    Assessment_Methods BIT
+  
+);
+INSERT INTO Knowledge_Understanding (ILOS) 
+VALUES 
+    ('3.b.1'),
+    ('3.b.2'),
+    ('3.b.3'),
+    ('3.b.4');
+
+
+CREATE TABLE Professional_Practical_Skills (
+    ILOS VARCHAR(50) PRIMARY KEY,
+    Aligned_with_PLOS BIT,
+    Teaching_Methods BIT,
+    Assessment_Methods BIT
+  
+);
+INSERT INTO Knowledge_Understanding (ILOS) 
+VALUES 
+    ('3.c.1'),
+    ('3.c.2'),
+    ('3.c.3'),
+    ('3.c.4');
+
+
+
+CREATE TABLE General_&_Transferable_Skills (
+    ILOS VARCHAR(50) PRIMARY KEY,
+    Aligned_with_PLOS BIT,
+    Teaching_Methods BIT,
+    Assessment_Methods BIT
+  
+);
+
+);
+INSERT INTO Knowledge_Understanding (ILOS) 
+VALUES 
+    ('3.d.1'),
+    ('3.d.2'),
+    ('3.d.3'),
+    ('3.d.4');
+
+
+CREATE TABLE course_content (
+    list_of_topics VARCHAR(50) ,
+    number_of_learning_hours VARCHAR(50) 
+    
+);
+
+CREATE TABLE Teaching_and_Learning_Methods (
+    TeachingandLearningMethods VARCHAR(50) ,
+    contac_thours VARCHAR(50), 
+    students_at_risk VARCHAR(255), 
+    percentagee VARCHAR(50) 
+
+);
+
+INSERT INTO Teaching_and_Learning_Methods (TeachingandLearningMethods) VALUES 
+('Traditional Classroom'),
+('Blended'),
+('e-learning'),
+('Distance Learning'),
+('Practical Training'),
+('Clinical Training');
+
+CREATE TABLE student_assessment_Methods (
+    studentassessmentMethods VARCHAR(50) ,
+    marks VARCHAR(50), 
+    Weight_in(%)	 VARCHAR(50), 
+    Allocated_Time VARCHAR(50) 
+
+);
+
+INSERT INTO student_assessment_Methods (studentassessmentMethods) VALUES 
+('Homework'),
+('lab'),
+('report'),
+('Quiz'),
+('Mid-term Exam'),
+('Practical/Clinical Final'),
+('Final Written Exam'),
+('Oral Exam');
+
+
+CREATE TABLE refrances (
+    CourseNotes VARCHAR(255),
+    EssentialBooks VARCHAR(255),
+    PeriodicalsWebsites VARCHAR(255),
+   
+);
+CREATE TABLE refrances (
+ CourseDirector VARCHAR(100),
+    CourseCoordinator VARCHAR(100),
+    HeadofDepartment VARCHAR(100),
+    DateofApproval DATE
+);
