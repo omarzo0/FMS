@@ -27,81 +27,85 @@
 
   <body>
     <!-- main body section -->
-    <div class="main-body">
-      <div class="header">
-        <h2>Blueprint for Written Exams</h2>
-      </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th scope="col" rowspan="2">Topic</th>
-            <th scope="col" colspan="3">Marks</th>
-            <th>No of lectures / Total no of lectures</th>
-            <th scope="col">ILOs</th>
-            <th scope="col">MCQ</th>
-            <th scope="col">Short Essay Q</th>
-            <th scope="col">Long Essay Q</th>
-            <th scope="col">True & False</th>
-            <th scope="col">Modified True & false</th>
-            <th scope="col">Short answer Q</th>
-            <th scope="col">Match</th>
-            <th scope="col">Complete</th>
-            <th scope="col">Problem solving</th>
-          </tr>
-          <tr></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"></th>
-            <th>M</th>
-            <th>Q</th>
-            <th>F</th>
-          </tr>
-          <tr>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-            <th>12</th>
-          </tr>
-        </tbody>
-      </table>
+    <form id="blueprintForm" method="post" action="submit_blueprint.php">
+      <div class="main-body">
+        <div class="header">
+          <h2>Blueprint for Written Exams</h2>
+        </div>
 
-      <div>
-        <label for="name">Course Director:</label>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" rowspan="2">Topic</th>
+              <th scope="col" colspan="3">Marks</th>
+              <th>No of lectures / Total no of lectures</th>
+              <th scope="col">ILOs</th>
+              <th scope="col">MCQ</th>
+              <th scope="col">Short Essay Q</th>
+              <th scope="col">Long Essay Q</th>
+              <th scope="col">True & False</th>
+              <th scope="col">Modified True & false</th>
+              <th scope="col">Short answer Q</th>
+              <th scope="col">Match</th>
+              <th scope="col">Complete</th>
+              <th scope="col">Problem solving</th>
+            </tr>
+            <tr></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <th>M</th>
+              <th>Q</th>
+              <th>F</th>
+            </tr>
+            <tr>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+              <th>12</th>
+            </tr>
+          </tbody>
+        </table>
 
-        <input type="text" id="name" name="name" required size="10" />
-      </div>
-      <div>
-        <label for="name">Date of approval: </label>
+        <div>
+          <label for="name">Course Director:</label>
 
-        <input type="text" id="name" name="name" required size="10" />
-      </div>
-      <div>
-        <label for="name">Head of the Department: </label>
+          <input type="text" id="name" name="name" required size="10" />
+        </div>
+        <div>
+          <label for="name">Date of approval: </label>
 
-        <input type="text" id="name" name="name" required size="10" />
-      </div>
-      <div>
-        <label for="name">Head of Division: </label>
+          <input type="text" id="name" name="name" required size="10" />
+        </div>
+        <div>
+          <label for="name">Head of the Department: </label>
 
-        <input type="text" id="name" name="name" required size="10" />
+          <input type="text" id="name" name="name" required size="10" />
+        </div>
+        <div>
+          <label for="name">Head of Division: </label>
+
+          <input type="text" id="name" name="name" required size="10" />
+        </div>
+        <div class="input-field">
+          <input type="submit" class="submit" value="Submit" />
+        </div>
       </div>
-      <div class="input-field">
-        <input type="submit" class="submit" value="Submit" />
-      </div>
-    </div>
+    </form>
+
     <!-- Vertical navbar section  -->
     <section class="nav-bar">
       <div class="menu-toggle">
