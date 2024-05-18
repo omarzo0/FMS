@@ -1,5 +1,23 @@
 CREATE TABLE Users (
-    UserID INT PRIMARY KEY IDENTITY(1,1),
+    UserID INT IDENTITY(1,1),
     Username VARCHAR(50) NOT NULL,
-    Password VARCHAR(50) NOT NULL
+	Instructor_id VARCHAR(50) PRIMARY KEY NOT NULL,
+    Password NVARCHAR(250) NOT NULL
 );
+
+
+select * from users
+CREATE TABLE doctors(
+    UserID INT IDENTITY(1,1) NOT NULL,
+	Fname VARCHAR(255) NOT NULL,
+	Mname VARCHAR(255) NOT NULL,
+	Lname VARCHAR(255) NOT NULL,
+	Instructor_id VARCHAR(50) PRIMARY KEY FOREIGN KEY REFERENCES Users(Instructor_id),
+	B_date VARCHAR(255) NOT NULL,
+	gender VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	phone_number INT NOT NULL,
+	gu_email VARCHAR(255) NOT NULL,
+	address VARCHAR(255) NOT NULL,
+	photo IMAGE NULL
+	);
