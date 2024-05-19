@@ -58,8 +58,8 @@ if (isset($_SESSION["id"])) {
       href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/form.css" />
     <link rel="shortcut icon" type="x-icon" href="img/ImageHandler (1).png" />
 
     <title>Admin</title>
