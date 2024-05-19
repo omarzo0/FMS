@@ -203,27 +203,7 @@
           </li>
         </ul>
       </div>
-    </section>
-            <!-- main body section -->
-            <div class="student-container">
-                <div class="st-left">
-                    <div class="left-head">
-                        <div class="profile">
-                            <img class="profile-image" src="img/dp.PNG" alt="">
-                        </div> 
-                        <div class="name">           
-                        <strong></strong>
-                        </div>
-    
-                    </div>
-                    <div class="left-body">
-                        <p class="field"><strong>professor Id:</strong><?php echo $instructor_id?></p>
-                        <p class="field"><strong>faculty:</strong>CSE</p>
-                        <p class="field"><strong>Program:</strong>CS</p>
-                    </div>
-                </div>
-            </div>
-           
+    </section>           
   </body>
   
 

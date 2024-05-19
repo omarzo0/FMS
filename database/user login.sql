@@ -6,7 +6,6 @@ CREATE TABLE Users (
 );
 
 
-select * from users
 CREATE TABLE doctors(
     UserID INT IDENTITY(1,1) NOT NULL,
 	Fname VARCHAR(255) NOT NULL,
@@ -19,5 +18,4 @@ CREATE TABLE doctors(
 	phone_number INT NOT NULL,
 	gu_email VARCHAR(255) NOT NULL,
 	address VARCHAR(255) NOT NULL,
-	photo IMAGE NULL
 	);

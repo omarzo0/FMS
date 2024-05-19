@@ -1,18 +1,8 @@
 <?php
-// Include the database connection file
 session_start();
-// Include the connection file
 require_once __DIR__ . "/connect.php";
-
-// Check if the session variable is set
-
 $instructor_id = $_SESSION["id"];
-
-
-// Define variables to store form input
 $firstName = $middleName = $lastName = $dob = $gender = $email = $phoneNumber = $guEmail = $address = '';
-
-// Function to fetch data from the database
 function fetchData($instructor_id) {
   global $conn;
   $sql = "SELECT * FROM doctors WHERE Instructor_id = ?";
@@ -32,7 +22,6 @@ function fetchData($instructor_id) {
       return false; // Error preparing statement
   }
 }
-
 $fun = fetchData($instructor_id);
 
 // Function to insert data into the database
@@ -166,6 +155,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         foreach ($fun as $data) {
             echo "<table class='profile-table'>
+            <tr>
+                <th><p><strong>professor Id:</strong></p></th>
+                <td>" . htmlspecialchars($instructor_id) . "</td>
+                 </tr>
                 <tr>
                     <th><strong>First Name</strong></th>
                     <td>" . htmlspecialchars($data['Fname'] ?? '') . "</td>
