@@ -1,131 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
-
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" type="x-icon" href="img/ImageHandler (1).png" />
-
-    <title>teaching-stuff</title>
-  </head>
-
-  <body>
-    <!-- main body section -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" type="x-icon" href="img/ImageHandler (1).png" />
+  <title>teaching-stuff</title>
+</head>
+<body>
+  <!-- main body section -->
+  <form id="blueprintForm" method="post" action="submit_blueprint.php">
     <div class="main-body">
       <div class="header">
         <h2>Blueprint for Written Exams</h2>
       </div>
-
       <table>
         <thead>
           <tr>
-            <th scope="col" rowspan="2">Topic</th>
-            <th scope="col" colspan="5">Marks</th>
-            <th scope="col" colspan="5">
-              No of lectures / Total no of lectures
-            </th>
-            <th scope="col" colspan="5">ILOs</th>
-            <th scope="col" colspan="5">MCQ</th>
-            <th scope="col" colspan="5">Short Essay Q</th>
-            <th scope="col" colspan="5">Long Essay Q</th>
-            <th scope="col" colspan="5">True & False</th>
-            <th scope="col" colspan="5">Modified True & false</th>
-            <th scope="col" colspan="5">Short answer Q</th>
-            <th scope="col" colspan="5">Match</th>
-            <th scope="col" colspan="5">Complete</th>
-            <th scope="col" colspan="5">Problem solving</th>
+            <th scope="col">Topic</th>
+            <th scope="col">Marks</th>
+            <th scope="col">No of lectures / Total no of lectures</th>
+            <th scope="col">ILOs</th>
+            <th scope="col">MCQ</th>
+            <th scope="col">Short Essay Q</th>
+            <th scope="col">Long Essay Q</th>
+            <th scope="col">True & False</th>
+            <th scope="col">Modified True & false</th>
+            <th scope="col">Short answer Q</th>
+            <th scope="col">Match</th>
+            <th scope="col">Complete</th>
+            <th scope="col">Problem solving</th>
           </tr>
-          <tr></tr>
         </thead>
-        <tbody>
+        <tbody id="topicsBody">
           <tr>
-            <th scope="row">1</th>
-            <th>M</th>
-            <th>Q</th>
-            <th>F</th>
+            <td><input type="text" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="text" class="form-control" required></td>
+            <td><input type="text" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
+            <td><input type="number" class="form-control" required></td>
           </tr>
         </tbody>
       </table>
-
+      <button class="edit-button">Edit</button>
+      <div class="input-field">
+        <button type="button" onclick="addTopicRow()" class="btn btn-primary">Add Topic</button>
+      </div>
       <div>
         <label for="name">Course Director:</label>
-
         <input type="text" id="name" name="name" required size="10" />
       </div>
       <div>
-        <label for="name">Date of approval: </label>
-
-        <input type="text" id="name" name="name" required size="10" />
+        <label for="date">Date of approval:</label>
+        <input type="date" id="date" name="date" required>
       </div>
       <div>
-        <label for="name">Head of the Department: </label>
-
-        <input type="text" id="name" name="name" required size="10" />
+        <label for="department_head">Head of the Department:</label>
+        <input type="text" id="department_head" name="department_head" required size="10" />
       </div>
       <div>
-        <label for="name">Head of Division: </label>
-
-        <input type="text" id="name" name="name" required size="10" />
+        <label for="division_head">Head of Division:</label>
+        <input type="text" id="division_head" name="division_head" required size="10" />
       </div>
       <div class="input-field">
-        <input type="submit" class="submit" value="Submit" />
+        <input type="submit" class="submit btn btn-primary" value="Submit" />
       </div>
     </div>
-    <!-- Vertical navbar section  -->
-    <section class="nav-bar">
-      <div class="menu-toggle">
-        <div class="hamburger">
-          <span></span>
-        </div>
+  </form>
+
+  <!-- Vertical navbar section -->
+  <section class="nav-bar">
+    <div class="menu-toggle">
+      <div class="hamburger">
+        <span></span>
       </div>
-      <div class="sidebar close">
-        <div class="logo-details">
-          <span class="logo_name"
-            ><img
-              src="img/GU-Logo-Monochrome-White-1-300x97.png"
-              width="150px"
-              alt=""
-          /></span>
-        </div>
-        <ul class="nav-links">
-          <li>
-            <div class="iocn-link">
-              <a href="adminhome.html">
-                <i class="bx bxs-user-plus bx-sm"></i>
-                <span class="link_name">Home</span>
-              </a>
-              <i class="bx bxs-chevron-down arrow"></i>
-            </div>
-            <ul class="sub-menu">
-              <li><a href="profile.html" class="sub-list">Profile</a></li>
-              <li>
-                <a href="passwordAdmin.html" class="sub-list"
-                  >Change Password</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="coursefilecontent.html">
-                <i class="bx bxs-user-plus bx-sm"></i>
-                <span class="link_name">content of course</span>
+    </div>
+    <div class="sidebar close">
+      <div class="logo-details">
+        <span class="logo_name"
+          ><img
+            src="img/GU-Logo-Monochrome-White-1-300x97.png"
+            width="150px"
+            alt=""
+        /></span>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <div class="iocn-link">
+            <a href="adminhome.html">
+              <i class="bx bxs-user-plus bx-sm"></i>
+              <span class="link_name">Home</span>
+            </a>
+            <i class="bx bxs-chevron-down arrow"></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="profile.html" class="sub-list">Profile</a></li>
+            <li>
+              <a href="passwordAdmin.html" class="sub-list"
+                >Change Password</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a href="coursefilecontent.html">
+              <i class="bx bxs-user-plus bx-sm"></i>
+              <span class="link_name">
+                content of course</span>
               </a>
               <i class="bx bxs-chevron-down arrow"></i>
             </div>
@@ -217,10 +211,10 @@
               <span class="link_name">ARS / NARS</span>
             </a>
           </li>
-
+  
           <br />
           <br />
-
+  
           <li>
             <div class="profile-details">
               <div class="profile-content">
@@ -254,7 +248,7 @@
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"
   ></script>
-
+  
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     let arrow = document.querySelectorAll(".arrow");
@@ -266,12 +260,12 @@
     }
     const menu_toggle = document.querySelector(".menu-toggle");
     const sidebar = document.querySelector(".sidebar");
-
+  
     menu_toggle.addEventListener("click", () => {
       menu_toggle.classList.toggle("is-active");
       sidebar.classList.toggle("is-active");
     });
-
+  
     function showConfirmation() {
       Swal.fire({
         title: "Sign out?",
@@ -287,5 +281,26 @@
         }
       });
     }
+  
+    function addTopicRow() {
+      let newRow = `
+        <tr>
+          <td><input type="text" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="text" class="form-control" required></td>
+          <td><input type="text" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+          <td><input type="number" class="form-control" required></td>
+        </tr>
+      `;
+      document.getElementById("topicsBody").insertAdjacentHTML("beforeend", newRow);
+    }
   </script>
-</html>
+  </html>
