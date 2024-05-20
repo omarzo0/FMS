@@ -35,55 +35,78 @@
         </h2>
       </div>
 
-      <table>
+      <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col" rowspan="2">topic</th>
+            <th scope="col" rowspan="2">Topic</th>
             <th scope="col" rowspan="2">ILOs</th>
-            <th scope="col" colspan="2">Teaching & Learning Methods</th>
+            <th scope="col" colspan="6">Topic	ILOs	Teaching & Learning Methods</th>
+            </tr>
+          <tr>
+            <th>Traditional Lectures</th>
+            <th>Blended</th>
+            <th>e-learning</th>
+            <th>Distance learning</th>
+            <th>Practical training</th>
+            <th>Practical training</th>
+            
           </tr>
         </thead>
-        <tbody>
+        <tbody id="topicsBody">
           <tr>
-            <th scope="row">1</th>
-            <th>CSE123</th>
+            <td><input type="text" class="form-control" required></td>
+            <td><input type="text" class="form-control" required></td>
             <td>
-              <table>
-                <tr>
-                  <th>Traditional Lectures</th>
-                  <th>Blended</th>
-                  <th>e-learning</th>
-                  <th>Distance learning</th>
-                  <th>Practical training</th>
-                  <th>Clinical training</th>
-                </tr>
-              </table>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>          
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>         
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </td>
-          </tr>
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>           
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>           
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>           
+           </tr>
         </tbody>
       </table>
-      <div>
-        <label for="name">Course Director:</label>
-
-        <input type="text" id="name" name="name" required size="10" />
-      </div>
-      <div>
-        <label for="name">Head of Division: </label>
-
-        <input type="text" id="name" name="name" required size="10" />
-      </div>
-      <div>
-        <label for="name">Head of the Department: </label>
-
-        <input type="text" id="name" name="name" required size="10" />
-      </div>
-      <div>
-        <label for="name">Date of Approval: </label>
-
-        <input type="text" id="name" name="name" required size="10" />
+      <div class="input-field">
+      <button type="button" onclick="addTopicRow()" class="btn btn-primary">Add Topic</button>
       </div>
       <div class="input-field">
-        <input type="submit" class="submit" value="Submit" />
+        <input type="submit" class="submit btn btn-primary" value="Submit" />
+        <button class="edit-button">Edit</button>
       </div>
     </div>
     <!-- Vertical navbar section  -->
@@ -285,6 +308,61 @@
           window.location.href = "index.html";
         }
       });
+    }
+
+    function addTopicRow() {
+      let newRow = `
+        <tr>
+          <td><input type="text" class="form-control" required></td>
+          <td><input type="text" class="form-control" required></td>
+          <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>         
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>      
+
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>  
+
+              <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>          
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>          
+            <td>
+              <select class="form-select" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </td>   
+          </td>
+        </tr>
+      `;
+      document.getElementById("topicsBody").insertAdjacentHTML("beforeend", newRow);
     }
   </script>
 </html>
