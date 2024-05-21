@@ -31,7 +31,7 @@
     <div class="container main">
         <div class="row">
             <div class="col-md-6 side-image">
-                <a for="" class="close-btn1 fa fa-close" href="img/ImageHandler (1).png"></a>
+                <a for="" class="close-btn1 fa fa-close" src="./img/ImageHandler (1).png"></a>
             </div>
             <div class="col-md-6 right">
                 <div class="input-box">

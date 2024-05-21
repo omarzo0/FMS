@@ -8,15 +8,19 @@ if (isset($_SESSION["id"])) {
         $name = $_POST['name'];
         $password = $_POST['password'];
         $instructor_id = $_POST['instructor_id'];
+        $Faculty = $_POST['Faculty'];
+        $Department = $_POST['Department'];
+        $Division = $_POST['Division'];
+        
         
         // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Prepare the SQL query
-        $tsql = "INSERT INTO Users (Username,Instructor_id, Password) VALUES (?, ?, ?)";
+        $tsql = "INSERT INTO Users (Username,Instructor_id, Password, Faculty, Department, Division) VALUES (?, ?, ?, ?, ?, ?)";
         
         // Bind parameters
-        $params = array($name,$instructor_id, $hashedPassword);
+        $params = array($name,$instructor_id, $hashedPassword, $Faculty, $Department, $Division);
         
         // Execute the query
         $stmt = sqlsrv_query($conn, $tsql, $params);
@@ -307,6 +311,46 @@ if (isset($_SESSION["id"])) {
                 id="contactForm"
                 name="contactForm"
                 >
+                <div class="col-lg-12 form-group mb-3">
+                  <label for="New-Password" class="col-form-label"
+                    >Faculty</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Faculty"
+                    id="instructor_id"
+                    placeholder="Faculty"
+                    required
+                  />
+                  <div id="pssd"></div>
+                </div><div class="col-lg-12 form-group mb-3">
+                  <label for="New-Password" class="col-form-label"
+                    >Department</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Department"
+                    id="instructor_id"
+                    placeholder="Department"
+                    required
+                  />
+                  <div id="pssd"></div>
+                </div><div class="col-lg-12 form-group mb-3">
+                  <label for="New-Password" class="col-form-label"
+                    >Enter Division ID</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="Division"
+                    id="instructor_id"
+                    placeholder="Division"
+                    required
+                  />
+                  <div id="pssd"></div>
+                </div>
                 <div class="col-lg-12 form-group mb-3">
                   <label for="New-Password" class="col-form-label"
                     >Enter the professor name</label

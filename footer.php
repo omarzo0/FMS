@@ -1,4 +1,7 @@
-<?php // Prepare and execute the database query for Admins
+<?php 
+        require_once __DIR__ . "/connect.php";
+
+$instructor_id = $_SESSION["id"];
         $tsql = "SELECT Username FROM Users WHERE Instructor_id = ?";
         $params = array($instructor_id);
         $stmt = sqlsrv_query($conn, $tsql, $params);
@@ -11,7 +14,8 @@
         if ($row_count === true) {
             $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
             $Username = $row['Username'];
-        } ?>
+        } 
+?>
 
 
 <!DOCTYPE html>
@@ -189,8 +193,7 @@
                 <div class="profile_name">DR/ <?php echo $Username;?>
                 </div>
                 <div class="job">professor</div>
-              </div>
-              <form action="logoutAdmin?_method=DELETE" method="POST">
+                <form action="logoutAdmin?_method=DELETE" method="POST">
                 <button
                   type="submit"
                   class="logout"
@@ -199,6 +202,9 @@
                   <i class="bx bx-log-out"></i>
                 </button>
               </form>
+              </div>
+              
+              
             </div>
           </li>
         </ul>

@@ -195,7 +195,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th><strong>Address</strong></th>
                     <td>" . htmlspecialchars($data['address'] ?? '') . "</td>
                 </tr>
-            </table>";
+            </table>
+            <input type='submit' class='submit btn btn-primary' value='Edit'>";
+
         }
     }
 ?>
