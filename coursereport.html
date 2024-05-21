@@ -19,10 +19,10 @@
       href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" type="x-icon" href="img/ImageHandler (1).png" />
 
-    <title>Admin</title>
+    <title>teaching-stuff</title>
   </head>
 
   <body>
@@ -31,20 +31,21 @@
       <div class="header">
         <h2>Course Report</h2>
       </div>
-      <label for="dog-names">Choose Instructor Name</label>
-      <select name="dog-names" id="dog-names">
-        <option value="rigatoni">omar</option>
-        <option value="dave">mohamed</option>
-        <option value="pumpernickel">eslam</option>
-        <option value="reeses">habash</option>
-      </select>
-      <label for="dog-names">Choose Course Name</label>
-      <select name="dog-names" id="dog-names">
-        <option value="rigatoni">Advanced database</option>
-        <option value="dave">machine learning</option>
-        <option value="pumpernickel">system analysis and design</option>
-        <option value="reeses">critical thinking</option>
-      </select>
+      <div class="dropdown">
+        <ul class="menu">
+          <li>
+            <div class="dropdown-header">
+              <a href="#">
+                <span class="dropdown-text">select year</span>
+              </a>
+              <i class="bx bxs-chevron-down arrow"></i>
+            </div>
+            <ul class="sub-menu" id="teaching-dropdown">
+              <!-- Dropdown options will be added dynamically here -->
+            </ul>
+          </li>
+        </ul>
+      </div>
 
       <table>
         <thead>
@@ -178,13 +179,23 @@
         <legend>Topics taught as a percentage of the content specified:</legend>
 
         <div>
+          <input type="checkbox" id="scales" name="scales" checked />
           <label for="scales">> 90% </label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="horns" name="horns" />
+          <label for="horns">> 70 - 90% </label>
+        </div>
+        <div>
+          <input type="checkbox" id="horns" name="horns" />
+          <label for="horns">> 70% </label>
         </div>
       </fieldset>
       <div>
         <label for="name">- Reasons for not teaching any topic (if any):</label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <div>
         <label for="name"
@@ -192,7 +203,7 @@
           specification (if any):
         </label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <span> 2. Teaching and Learning Methods:</span>
       <table>
@@ -349,22 +360,22 @@
       <div>
         <label for="name">-List any difficulties encountered: </label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <span>6- Student Evaluation of the course: </span>
       <div>
         <label for="name"> List the main points in students’ feedback </label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" /><br />
         <label for="name"> Response of Course Team </label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <span>7- Comments from external evaluator(s): </span>
       <div>
         <label for="name"> Response of Course Team</label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <span>8- Course Enhancement:</span>
       <table>
@@ -411,25 +422,26 @@
       </table>
       <div>
         <label for="name"> Course Director: </label>
-        <h2></h2>
+
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <div>
         <label for="name"> Head of Department: </label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <div>
         <label for="name"> Date of Approval: </label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <div>
         <label for="name"> Signature: </label>
 
-        <h2></h2>
+        <input type="text" id="name" name="name" required size="10" />
       </div>
       <div class="input-field">
-        <input type="submit" class="submit" value="print" />
+        <input type="submit" class="submit" value="Submit" />
       </div>
     </div>
 
@@ -444,7 +456,7 @@
         <div class="logo-details">
           <span class="logo_name"
             ><img
-              src="/img/GU-Logo-Monochrome-White-1-300x97.png"
+              src="img/GU-Logo-Monochrome-White-1-300x97.png"
               width="150px"
               alt=""
           /></span>
@@ -452,18 +464,16 @@
         <ul class="nav-links">
           <li>
             <div class="iocn-link">
-              <a href="/admin/adminhome.html">
+              <a href="adminhome.html">
                 <i class="bx bxs-user-plus bx-sm"></i>
                 <span class="link_name">Home</span>
               </a>
               <i class="bx bxs-chevron-down arrow"></i>
             </div>
             <ul class="sub-menu">
+              <li><a href="profile.html" class="sub-list">Profile</a></li>
               <li>
-                <a href="/admin/profile.html" class="sub-list">Profile</a>
-              </li>
-              <li>
-                <a href="/admin/passwordAdmin.html" class="sub-list"
+                <a href="passwordAdmin.html" class="sub-list"
                   >Change Password</a
                 >
               </li>
@@ -471,28 +481,7 @@
           </li>
           <li>
             <div class="iocn-link">
-              <a href="">
-                <i class="bx bxs-user-plus bx-sm"></i>
-                <span class="link_name">Instructors</span>
-              </a>
-              <i class="bx bxs-chevron-down arrow"></i>
-            </div>
-            <ul class="sub-menu">
-              <li>
-                <a href="/admin/addInstructor.html" class="sub-list"
-                  >Add Instructor</a
-                >
-              </li>
-              <li>
-                <a href="coursematrix&ILO.html" class="sub-list"
-                  >Remove Instructor</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="/admin/coursefilecontent.html">
+              <a href="coursefilecontent.html">
                 <i class="bx bxs-user-plus bx-sm"></i>
                 <span class="link_name">content of course</span>
               </a>
@@ -500,19 +489,17 @@
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="/admin/coursereportcheck.html" class="sub-list"
+                <a href="coursereportcheck.html" class="sub-list"
                   >course file checklist</a
                 >
               </li>
               <li>
-                <a href="/admin/coursematrix&ILO.html" class="sub-list"
+                <a href="coursematrix&ILO.html" class="sub-list"
                   >course matrix Topics</a
                 >
               </li>
               <li>
-                <a href="/admin/coursereport.html" class="sub-list"
-                  >course report</a
-                >
+                <a href="coursereport.html" class="sub-list">course report</a>
               </li>
             </ul>
           </li>
@@ -526,12 +513,12 @@
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="/admin/Qforstudent.html" class="sub-list"
+                <a href="Qforstudent.html" class="sub-list"
                   >Questionnaires for student</a
                 >
               </li>
               <li>
-                <a href="/admin/Qofvisionstaff.html" class="sub-list"
+                <a href="Qofvisionstaff.html" class="sub-list"
                   >Questionnaires for staff</a
                 >
               </li>
@@ -547,43 +534,43 @@
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="/admin/relationshipcourse.html" class="sub-list"
+                <a href="relationshipcourse.html.html" class="sub-list"
                   >RelationShip matrix for courses</a
                 >
               </li>
               <li>
-                <a href="/admin/relationshipNARS.html" class="sub-list"
+                <a href="relationshipNARS.html.html" class="sub-list"
                   >RelationShip matrix for NARS</a
                 >
               </li>
             </ul>
           </li>
           <li>
-            <a href="/admin/ass&ILOs.html">
+            <a href="ass&ILOs.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Assessment & ILOs</span>
             </a>
           </li>
           <li>
-            <a href="/admin/bluerpint.html">
+            <a href="bluerpint.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Blueprint Written</span>
             </a>
           </li>
           <li>
-            <a href="/admin/Lmetthod&ILOs.html">
+            <a href="Lmetthod&ILOs.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Teaching & Learning Matrix</span>
             </a>
           </li>
           <li>
-            <a href="/admin/coursespec.html">
+            <a href="coursespec.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Course Specification</span>
             </a>
           </li>
           <li>
-            <a href="/admin/arsnars.html">
+            <a href="arsnars.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">ARS / NARS</span>
             </a>
@@ -597,7 +584,7 @@
               <div class="profile-content">
                 <img
                   style="background-color: white"
-                  src="/img/administrator.png"
+                  src="img/administrator.png"
                   alt="Administrator"
                 />
               </div>
@@ -654,7 +641,7 @@
       }).then((result) => {
         if (result.isConfirmed) {
           // Submit the form
-          window.location.href = "/index.html";
+          window.location.href = "index.html";
         }
       });
     }

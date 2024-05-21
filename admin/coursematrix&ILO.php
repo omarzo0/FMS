@@ -137,6 +137,9 @@
       <div class="input-field">
         <input type="submit" class="submit" value="Submit" />
       </div>
+      <div class="input-field">
+        <input type="submit" class="submit" value="print" />
+      </div>
     </div>
     <!-- Vertical navbar section  -->
     <section class="nav-bar">
