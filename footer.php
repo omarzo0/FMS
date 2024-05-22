@@ -82,7 +82,7 @@ $instructor_id = $_SESSION["id"];
           </li>
           <li>
             <div class="iocn-link">
-              <a href="coursefilecontent.php">
+            <a href="coursefilecontent.php">
                 <i class="bx bxs-user-plus bx-sm"></i>
                 <span class="link_name">content of course</span>
               </a>
@@ -90,15 +90,64 @@ $instructor_id = $_SESSION["id"];
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="coursereportcheck.php" class="sub-list"
-                  >course file checklist</a
+                <a href="coursespec.php" class="sub-list"
+                  >course Specification</a
                 >
               </li>
               <li>
                 <a href="coursematrix&ILO.php" class="sub-list"
-                  >course matrix Topics</a
+                  >ILOs versus course content</a
                 >
               </li>
+
+
+              <li>
+                <a href="Lmetthod&ILOs.php">
+                  <i class="bx bx-comment-error"></i>
+                  <span class="link_name">ILOs versus teaching & learning methods</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="ass&ILOs.php">
+                  <i class="bx bx-comment-error"></i>
+                  <span class="link_name">ILOs verses assessment methods</span>
+                </a>
+              </li>
+
+
+              <li>
+                <a href="instructordata.html" class="sub-list"
+                  >instructor data</a
+                >
+              </li>
+              <li>
+                <a href="" class="sub-list"
+                  >semester  schedule</a
+                >
+              </li>
+              <li>
+                <a href="bluerpint.php" class="sub-list"
+                  >Bluerpint for Written exams</a
+                >
+              </li>
+              <li>
+                <a href="" class="sub-list"
+                  >Rubrics for practical exam</a
+                >
+              </li>
+              <li>
+                <a href="student&coursedata" class="sub-list"
+                 student&coursedata ></a
+                >
+              </li>
+              
+              <li>
+                <a href="coursereportcheck.php" class="sub-list"
+                  >course file checklist</a
+                >
+              </li>
+         
               <li>
                 <a href="coursereport.php" class="sub-list">course report</a>
               </li>
@@ -147,29 +196,7 @@ $instructor_id = $_SESSION["id"];
             </ul>
           </li>
           <li>
-            <a href="ass&ILOs.php">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">Assessment & ILOs</span>
-            </a>
-          </li>
-          <li>
-            <a href="bluerpint.php">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">Blueprint Written</span>
-            </a>
-          </li>
-          <li>
-            <a href="Lmetthod&ILOs.php">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">Teaching & Learning Matrix</span>
-            </a>
-          </li>
-          <li>
-            <a href="coursespec.php">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">Course Specification</span>
-            </a>
-          </li>
+   
           <li>
             <a href="arsnars.php">
               <i class="bx bx-comment-error"></i>
