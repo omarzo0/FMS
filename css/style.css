@@ -808,8 +808,6 @@ th {
   background-color: #f0f0f0;
 }
 
-
-
 /* Additional CSS to fix positioning issues */
 
 /* Adjustments for form layout */
@@ -862,9 +860,6 @@ th {
   }
 }
 
-
-
-
 /* Table Styles */
 table {
   width: 100%;
@@ -872,7 +867,8 @@ table {
   margin-bottom: 20px;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: center;
@@ -917,4 +913,13 @@ table button[type="button"]:hover {
 
 .edit-button:hover {
   background-color: #218838;
+}
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
