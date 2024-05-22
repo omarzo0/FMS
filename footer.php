@@ -17,7 +17,6 @@ $instructor_id = $_SESSION["id"];
         } 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,15 +73,13 @@ $instructor_id = $_SESSION["id"];
             <ul class="sub-menu">
               <li><a href="profile.php" class="sub-list">Profile</a></li>
               <li>
-                <a href="passwordAdmin.php" class="sub-list"
-                  >Change Password</a
-                >
+                <a href="passwordAdmin.php" class="sub-list">Change Password</a>
               </li>
             </ul>
           </li>
           <li>
             <div class="iocn-link">
-            <a href="coursefilecontent.php">
+              <a href="coursefilecontent.php">
                 <i class="bx bxs-user-plus bx-sm"></i>
                 <span class="link_name">content of course</span>
               </a>
@@ -100,21 +97,17 @@ $instructor_id = $_SESSION["id"];
                 >
               </li>
 
-
               <li>
-                <a href="Lmetthod&ILOs.php">
-                  <i class="bx bx-comment-error"></i>
-                  <span class="link_name">ILOs versus teaching & learning methods</span>
+                <a href="Lmetthod&ILOs.php" class="sub-list">
+                  ILOs versus teaching & learning methods
                 </a>
               </li>
 
               <li>
-                <a href="ass&ILOs.php">
-                  <i class="bx bx-comment-error"></i>
-                  <span class="link_name">ILOs verses assessment methods</span>
+                <a href="ass&ILOs.php" class="sub-list">
+                  ILOs verses assessment methods
                 </a>
               </li>
-
 
               <li>
                 <a href="instructordata.html" class="sub-list"
@@ -122,9 +115,7 @@ $instructor_id = $_SESSION["id"];
                 >
               </li>
               <li>
-                <a href="" class="sub-list"
-                  >semester  schedule</a
-                >
+                <a href="" class="sub-list">semester schedule</a>
               </li>
               <li>
                 <a href="bluerpint.php" class="sub-list"
@@ -132,22 +123,22 @@ $instructor_id = $_SESSION["id"];
                 >
               </li>
               <li>
-                <a href="" class="sub-list"
-                  >Rubrics for practical exam</a
-                >
+                <a href="" class="sub-list">Rubrics for practical exam</a>
               </li>
               <li>
-                <a href="student&coursedata" class="sub-list"
-                 student&coursedata ></a
-                >
+                <a
+                  href="student&coursedata"
+                  class="sub-list"
+                  student&coursedata
+                ></a>
               </li>
-              
+
               <li>
                 <a href="coursereportcheck.php" class="sub-list"
                   >course file checklist</a
                 >
               </li>
-         
+
               <li>
                 <a href="coursereport.php" class="sub-list">course report</a>
               </li>
@@ -195,8 +186,8 @@ $instructor_id = $_SESSION["id"];
               </li>
             </ul>
           </li>
-          <li>
-   
+          <li></li>
+
           <li>
             <a href="arsnars.php">
               <i class="bx bx-comment-error"></i>
@@ -217,29 +208,27 @@ $instructor_id = $_SESSION["id"];
                 />
               </div>
               <div class="name-job">
-                <div class="profile_name">DR/ <?php echo $Username;?>
+                <div class="profile_name">
+                  DR/
+                  <?php echo $Username;?>
                 </div>
                 <div class="job">professor</div>
                 <form action="logoutAdmin?_method=DELETE" method="POST">
-                <button
-                  type="submit"
-                  class="logout"
-                  onclick="event.preventDefault(); showConfirmation();"
-                >
-                  <i class="bx bx-log-out"></i>
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    class="logout"
+                    onclick="event.preventDefault(); showConfirmation();"
+                  >
+                    <i class="bx bx-log-out"></i>
+                  </button>
+                </form>
               </div>
-              
-              
             </div>
           </li>
         </ul>
       </div>
-    </section>           
+    </section>
   </body>
-  
-
 </html>
 <?php 
     sqlsrv_close($conn);
