@@ -1,3 +1,49 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id'])) {
+    require_once __DIR__ . "/connect.php";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+        if ($conn) {
+            $instructor_id = $_SESSION["id"];
+
+            // Get form data
+            $name = isset($_POST['name']) ? $_POST['name'] : null;
+            $position = isset($_POST['position']) ? $_POST['position'] : null;
+            $statement = isset($_POST['statement']) ? $_POST['statement'] : null;
+            $response = isset($_POST['response']) ? $_POST['response'] : null;
+            $comments = isset($_POST['comments']) ? $_POST['comments'] : null;
+
+            // Check that required fields are not null
+            if ($name && $position && $statement && $response) {
+                // Insert data into database
+                $sql = "INSERT INTO questionnaire_student (name, instructor_id, position, statement, response, comments, submission_date)
+                        VALUES (?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)";
+                $params = array($name, $instructor_id, $position, $statement, $response, $comments);
+
+                $stmt = sqlsrv_query($conn, $sql, $params);
+
+                if ($stmt) {
+                } else {
+                    echo "Error: " . print_r(sqlsrv_errors(), true);
+                }
+
+            } else {
+                echo "All fields are required except comments.";
+            }
+        } else {
+            echo "Database connection error.";
+        }
+    }
+} else {
+    header('Location: index.php');
+    exit();
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,35 +101,35 @@
           >
           <h3>Field/Program Mission:</h3>
           <span>Insert your Field/Program Mission statement here.</span>
-          <fieldset>
-            <legend>Name (optional):</legend>
-            <input type="text" id="name" name="name" required size="10" />
-            <h3>Position:</h3>
-            <div>
-              <input type="checkbox" id="scales" name="scales" checked />
-              <label for="scales">Prof </label>
-            </div>
-
-            <div>
-              <input type="checkbox" id="horns" name="horns" />
-              <label for="horns">Ass Prof</label>
-            </div>
-            <div>
-              <input type="checkbox" id="horns" name="horns" />
-              <label for="horns">Lecturer</label>
-            </div>
-            <div>
-              <input type="checkbox" id="horns" name="horns" />
-              <label for="horns">Ass Lecturer</label>
-            </div>
-            <div>
-              <input type="checkbox" id="horns" name="horns" />
-              <label for="horns">TA</label>
-            </div>
-          </fieldset>
-          <table>
-            <thead>
-              <tr>
+          <form method="post">
+    <fieldset>
+        <legend>Name:</legend>
+        <input type="text" id="name" name="name" required size="10" placeholder="Full Name" />
+        <h3>Position:</h3>
+        <div>
+            <input type="checkbox" id="prof" value="Prof" name="position[]" />
+            <label for="prof">Prof</label>
+        </div>
+        <div>
+            <input type="checkbox" id="assistant_prof" value="Assistant Prof" name="position[]" />
+            <label for="assistant_prof">Assistant Prof</label>
+        </div>
+        <div>
+            <input type="checkbox" id="lecturer" value="Lecturer" name="position[]" />
+            <label for="lecturer">Lecturer</label>
+        </div>
+        <div>
+            <input type="checkbox" id="assistant_lecturer" value="Assistant Lecturer" name="position[]" />
+            <label for="assistant_lecturer">Assistant Lecturer</label>
+        </div>
+        <div>
+            <input type="checkbox" id="ta" value="TA" name="position[]" />
+            <label for="ta">TA</label>
+        </div>
+    </fieldset>
+    <table>
+        <thead>
+            <tr>
                 <th scope="col">#</th>
                 <th scope="col">Statement</th>
                 <th scope="col">Strongly agree</th>
@@ -91,192 +137,31 @@
                 <th scope="col">Neutral</th>
                 <th scope="col">Disagree</th>
                 <th scope="col">Strongly disagree</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
                 <th scope="row">1</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </tbody>
-          </table>
-          <div>
-            <label for="name">Other suggestions/comments</label>
-
-            <input type="text" id="name" name="name" required size="10" />
-          </div>
-        </div>
-      </div>
-      <div class="input-field">
-        <input type="submit" class="submit" value="Submit" />
-      </div>
+                <th><input type="text" name="statement" /></th>
+                <th><input type="checkbox" value="Strongly agree" name="response" /></th>
+                <th><input type="checkbox" value="Agree" name="response" /></th>
+                <th><input type="checkbox" value="Neutral" name="response" /></th>
+                <th><input type="checkbox" value="Disagree" name="response" /></th>
+                <th><input type="checkbox" value="Strongly disagree" name="response" /></th>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <label for="comments">Other suggestions/comments</label>
+        <input type="text" id="comments" name="comments" required size="10" />
     </div>
+    <div class="input-field">
+        <input type="submit" class="submit" name="submit" value="Submit" />
+    </div>
+</form>
+<?php include 'footer.php' ?>
+
     <!-- Vertical navbar section  -->
-    <section class="nav-bar">
-      <div class="menu-toggle">
-        <div class="hamburger">
-          <span></span>
-        </div>
-      </div>
-      <div class="sidebar close">
-        <div class="logo-details">
-          <span class="logo_name"
-            ><img
-              src="img/GU-Logo-Monochrome-White-1-300x97.png"
-              width="150px"
-              alt=""
-          /></span>
-        </div>
-        <ul class="nav-links">
-          <li>
-            <div class="iocn-link">
-              <a href="adminhome.html">
-                <i class="bx bxs-user-plus bx-sm"></i>
-                <span class="link_name">Home</span>
-              </a>
-              <i class="bx bxs-chevron-down arrow"></i>
-            </div>
-            <ul class="sub-menu">
-              <li><a href="profile.html" class="sub-list">Profile</a></li>
-              <li>
-                <a href="passwordAdmin.html" class="sub-list"
-                  >Change Password</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="coursefilecontent.html">
-                <i class="bx bxs-user-plus bx-sm"></i>
-                <span class="link_name">content of course</span>
-              </a>
-              <i class="bx bxs-chevron-down arrow"></i>
-            </div>
-            <ul class="sub-menu">
-              <li>
-                <a href="coursereportcheck.html" class="sub-list"
-                  >course file checklist</a
-                >
-              </li>
-              <li>
-                <a href="coursematrix&ILO.html" class="sub-list"
-                  >course matrix Topics</a
-                >
-              </li>
-              <li>
-                <a href="coursereport.html" class="sub-list">course report</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="">
-                <i class="bx bxs-user-plus bx-sm"></i>
-                <span class="link_name">Questionnaires</span>
-              </a>
-              <i class="bx bxs-chevron-down arrow"></i>
-            </div>
-            <ul class="sub-menu">
-              <li>
-                <a href="Qforstudent.html" class="sub-list"
-                  >Questionnaires for student</a
-                >
-              </li>
-              <li>
-                <a href="Qofvisionstaff.html" class="sub-list"
-                  >Questionnaires for staff</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="">
-                <i class="bx bxs-user-plus bx-sm"></i>
-                <span class="link_name">RelationShip</span>
-              </a>
-              <i class="bx bxs-chevron-down arrow"></i>
-            </div>
-            <ul class="sub-menu">
-              <li>
-                <a href="relationshipcourse.html.html" class="sub-list"
-                  >RelationShip matrix for courses</a
-                >
-              </li>
-              <li>
-                <a href="relationshipNARS.html.html" class="sub-list"
-                  >RelationShip matrix for NARS</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="ass&ILOs.html">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">Assessment & ILOs</span>
-            </a>
-          </li>
-          <li>
-            <a href="bluerpint.html">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">Blueprint Written</span>
-            </a>
-          </li>
-          <li>
-            <a href="Lmetthod&ILOs.html">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">Teaching & Learning Matrix</span>
-            </a>
-          </li>
-          <li>
-            <a href="coursespec.html">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">Course Specification</span>
-            </a>
-          </li>
-          <li>
-            <a href="arsnars.html">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">ARS / NARS</span>
-            </a>
-          </li>
-
-          <br />
-          <br />
-
-          <li>
-            <div class="profile-details">
-              <div class="profile-content">
-                <img
-                  style="background-color: white"
-                  src="img/administrator.png"
-                  alt="Administrator"
-                />
-              </div>
-              <div class="name-job">
-                <div class="profile_name">DR/ Moh Abdelaziz</div>
-                <div class="job">professor</div>
-              </div>
-              <form action="logoutAdmin?_method=DELETE" method="POST">
-                <button
-                  type="submit"
-                  class="logout"
-                  onclick="event.preventDefault(); showConfirmation();"
-                >
-                  <i class="bx bx-log-out"></i>
-                </button>
-              </form>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -312,7 +197,7 @@
       }).then((result) => {
         if (result.isConfirmed) {
           // Submit the form
-          window.location.href = "index.html";
+          window.location.href = "index.php";
         }
       });
     }

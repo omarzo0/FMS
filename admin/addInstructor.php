@@ -46,7 +46,7 @@ if (isset($_SESSION["id"])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/table.css" />
+    <link rel="stylesheet" href="../css/table.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -62,9 +62,9 @@ if (isset($_SESSION["id"])) {
       href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/form.css" />
-    <link rel="shortcut icon" type="x-icon" href="img/ImageHandler (1).png" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/form.css" />
+    <link rel="shortcut icon" type="x-icon" href="../img/ImageHandler.png" />
 
     <title>Admin</title>
   </head>
@@ -81,7 +81,7 @@ if (isset($_SESSION["id"])) {
         <div class="logo-details">
           <span class="logo_name"
             ><img
-              src="/img/GU-Logo-Monochrome-White-1-300x97.png"
+              src="../img/GU-Logo-Monochrome-White-1-300x97.png"
               width="150px"
               alt=""
           /></span>
@@ -121,7 +121,7 @@ if (isset($_SESSION["id"])) {
                 >
               </li>
               <li>
-                <a href="coursematrix&ILO.html" class="sub-list"
+                <a href="coursematrix&ILO.php" class="sub-list"
                   >Remove Instructor</a
                 >
               </li>
@@ -234,7 +234,7 @@ if (isset($_SESSION["id"])) {
               <div class="profile-content">
                 <img
                   style="background-color: white"
-                  src="/img/administrator.png"
+                  src="../img/administrator.png"
                   alt="Administrator"
                 />
               </div>
@@ -339,7 +339,7 @@ if (isset($_SESSION["id"])) {
                   <div id="pssd"></div>
                 </div><div class="col-lg-12 form-group mb-3">
                   <label for="New-Password" class="col-form-label"
-                    >Enter Division ID</label
+                    >Enter Division</label
                   >
                   <input
                     type="text"

@@ -6,7 +6,7 @@ function is_logged_in()
 }
 
 if (!is_logged_in() || $_SESSION['id'] == 0) {
-    echo '<script>alert("You have to sign in first"); window.location.href = "C:\xampp\htdocs\fieldtraning\index.php";</script>';
+    echo '<script>alert("You have to sign in first"); window.location.href = "../index.php";</script>';
     exit;
 }
-?>
+?> 

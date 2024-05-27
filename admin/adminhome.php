@@ -1,11 +1,9 @@
 <?php
-session_start(); // Start or resume the current session
-if(isset($_SESSION['id']))
+include 'loggedin.php';
+if(is_logged_in())
 {
     $id = $_SESSION['id'];
-    echo $id;
 }else{
-    header('Location: index.php');
 }
 ?>
 
@@ -30,8 +28,8 @@ if(isset($_SESSION['id']))
       href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="shortcut icon" type="x-icon" href="/img/ImageHandler (1).png" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" type="x-icon" href="../img/ImageHandler.png" />
 
     <title>Admin</title>
   </head>
@@ -53,7 +51,7 @@ if(isset($_SESSION['id']))
         <div class="logo-details">
           <span class="logo_name"
             ><img
-              src="/img/GU-Logo-Monochrome-White-1-300x97.png"
+              src="../img/GU-Logo-Monochrome-White-1-300x97.png"
               width="150px"
               alt=""
           /></span>
@@ -93,7 +91,7 @@ if(isset($_SESSION['id']))
                 >
               </li>
               <li>
-                <a href="coursematrix&ILO.php" class="sub-list"
+                <a href="removeinstructor.php" class="sub-list"
                   >Remove Instructor</a
                 >
               </li>
@@ -206,7 +204,7 @@ if(isset($_SESSION['id']))
               <div class="profile-content">
                 <img
                   style="background-color: white"
-                  src="/img/administrator.png"
+                  src="../img/administrator.png"
                   alt="Administrator"
                 />
               </div>
@@ -264,7 +262,7 @@ if(isset($_SESSION['id']))
         }).then((result) => {
           if (result.isConfirmed) {
             // Submit the form
-            window.location.href = "logout.php";
+            window.location.href = "../logout.php";
           }
         });
       }

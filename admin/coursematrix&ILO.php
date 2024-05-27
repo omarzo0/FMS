@@ -19,8 +19,8 @@
       href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="shortcut icon" type="x-icon" href="img/ImageHandler (1).png" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" type="x-icon" href="../img/ImageHandler (1).png" />
 
     <title>Admin</title>
   </head>
@@ -152,7 +152,7 @@
         <div class="logo-details">
           <span class="logo_name"
             ><img
-              src="/img/GU-Logo-Monochrome-White-1-300x97.png"
+              src="../img/GU-Logo-Monochrome-White-1-300x97.png"
               width="150px"
               alt=""
           /></span>
@@ -305,7 +305,7 @@
               <div class="profile-content">
                 <img
                   style="background-color: white"
-                  src="/img/administrator.png"
+                  src="../img/administrator.png"
                   alt="Administrator"
                 />
               </div>

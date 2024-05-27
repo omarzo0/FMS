@@ -1,9 +1,53 @@
+<?php
+session_start();
+
+if (isset($_SESSION["id"])) {
+  require_once __DIR__ . "/connect.php";
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // Include the connection file
+        $instructor_id = $_POST['instructor_id'];
+
+        // Prepare the SQL query
+        $Dsql = "DELETE FROM Users WHERE Instructor_id = ?";
+
+        // Bind parameters
+        $params = array($instructor_id);
+
+        // Execute the query
+        $stmt = sqlsrv_query($conn, $Dsql, $params);
+
+        if ($stmt === false) {
+            $error = sqlsrv_errors();
+            $errorMessage = "Error deleting instructor: ";
+            foreach ($error as $e) {
+                $errorMessage .= $e['message'] . " ";
+            }
+            echo "<script>
+                alert('$errorMessage');
+                window.location.href = 'removeinstructor.php';
+                </script>";
+        } else {
+            echo "<script>
+                alert('Instructor deleted successfully');
+                window.location.href = 'removeinstructor.php';
+                </script>";
+        }
+        sqlsrv_close($conn);
+    }
+} else {
+    echo "Unauthorized access.";
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8" /> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/table.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -19,117 +63,14 @@
       href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="shortcut icon" type="x-icon" href="img/ImageHandler (1).png" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/form.css" />
+    <link rel="shortcut icon" type="x-icon" href="../img/ImageHandler (1).png" />
 
-    <title>Admin</title>
+    <title>Change Password</title>
   </head>
 
   <body>
-    <!-- main body section -->
-    <div class="main-body">
-      <div class="header">
-        <h2>Course Report Checklist</h2>
-      </div>
-      <label for="dog-names">Choose Instructor Name</label>
-      <select name="dog-names" id="dog-names">
-        <option value="rigatoni">omar</option>
-        <option value="dave">mohamed</option>
-        <option value="pumpernickel">eslam</option>
-        <option value="reeses">habash</option>
-      </select>
-      <label for="dog-names">Choose Course Name</label>
-      <select name="dog-names" id="dog-names">
-        <option value="rigatoni">Advanced database</option>
-        <option value="dave">machine learning</option>
-        <option value="pumpernickel">system analysis and design</option>
-        <option value="reeses">critical thinking</option>
-      </select>
-
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Items</th>
-            <th scope="col">Check</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Course Title</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Code</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Specialty</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Number of contact hours/week</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Number of credit hours</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Topics actually taught</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Student assessment</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Administrative constraints</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Results of students feedback on the course</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Proposals for course improvements</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Comments of external reviewers</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">
-              Progress on actions identified in the previous year’s action plan
-            </th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Improvements that were not implemented</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Action plan</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Course Director</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Signature:</th>
-            <th></th>
-          </tr>
-          <tr>
-            <th scope="row">Date of approval</th>
-            <th></th>
-          </tr>
-        </tbody>
-      </table>
-      <div class="input-field">
-        <input type="submit" class="submit" value="print" />
-      </div>
-    </div>
     <!-- Vertical navbar section  -->
     <section class="nav-bar">
       <div class="menu-toggle">
@@ -141,7 +82,7 @@
         <div class="logo-details">
           <span class="logo_name"
             ><img
-              src="/img/GU-Logo-Monochrome-White-1-300x97.png"
+              src="../img/GU-Logo-Monochrome-White-1-300x97.png"
               width="150px"
               alt=""
           /></span>
@@ -197,7 +138,7 @@
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="/admin/coursereportcheck.html" class="sub-list"
+                <a href="/admin/coursereportcheck.php" class="sub-list"
                   >course file checklist</a
                 >
               </li>
@@ -294,7 +235,7 @@
               <div class="profile-content">
                 <img
                   style="background-color: white"
-                  src="/img/administrator.png"
+                  src="../img/administrator.png"
                   alt="Administrator"
                 />
               </div>
@@ -316,44 +257,112 @@
         </ul>
       </div>
     </section>
+
+    <!-- Javascript section -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e) => {
+          let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+          arrowParent.classList.toggle("showMenu");
+        });
+      }
+      const menu_toggle = document.querySelector(".menu-toggle");
+      const sidebar = document.querySelector(".sidebar");
+
+      menu_toggle.addEventListener("click", () => {
+        menu_toggle.classList.toggle("is-active");
+        sidebar.classList.toggle("is-active");
+      });
+
+      function showConfirmation() {
+        Swal.fire({
+          title: "Sign out?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Submit the form
+            window.location.href = "index.html";
+          }
+        });
+      }
+    </script>
+    <section class="form-body">
+      <div class="form-container">
+        <div class="row align-items-stretch no-gutters contact-wrap">
+          <div class="col-md-12">
+            <div class="form h-100">
+              <h3>remove instructor</h3>
+              <div class="col-lg-12 form-group mb-3">
+
+              <form
+              action=""
+                method="post"
+                class="mb-5"
+                id="contactForm"
+              >
+                  <label for="New-Password" class="col-form-label"
+                    >Instructor ID</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="instructor_id"
+                    id="password"
+                    placeholder="Instructor ID"
+                    required
+                  />
+                  <div id="pssd">      <span id="get_student_name" style="font-size:16px;"></span>
+</div>
+                </div>
+
+                <div class="input-field">
+                  <input type="submit" class="submit" value="Submit" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<script>
+    var instructorId = document.getElementById("password");
+var spanElement = document.getElementById("get_student_name");
+
+instructorId.addEventListener("input", function() {
+  var id = instructorId.value;
+  fetchUsername(id);
+});
+
+function fetchUsername(instructorId) {
+  // Make a request to the server to fetch the username
+  // Replace 'get_student.php' with the appropriate URL for your server-side script
+  fetch('get_student.php', {
+    method: 'POST',
+    body: new URLSearchParams({ password: instructorId }),
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+  .then(response => response.text())
+  .then(username => {
+    spanElement.textContent = "Instructor Name: " + username;
+  })
+  .catch(error => {
+    console.error('Error fetching username:', error);
+  });
+}
+</script>
   </body>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"
-  ></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    let arrow = document.querySelectorAll(".arrow");
-    for (var i = 0; i < arrow.length; i++) {
-      arrow[i].addEventListener("click", (e) => {
-        let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
-        arrowParent.classList.toggle("showMenu");
-      });
-    }
-    const menu_toggle = document.querySelector(".menu-toggle");
-    const sidebar = document.querySelector(".sidebar");
-
-    menu_toggle.addEventListener("click", () => {
-      menu_toggle.classList.toggle("is-active");
-      sidebar.classList.toggle("is-active");
-    });
-
-    function showConfirmation() {
-      Swal.fire({
-        title: "Sign out?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          // Submit the form
-          window.location.href = "/index.html";
-        }
-      });
-    }
-  </script>
 </html>
