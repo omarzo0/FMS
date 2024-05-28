@@ -1,21 +1,3 @@
-<?php 
-        require_once __DIR__ . "/connect.php";
-
-$AdminID = $_SESSION["id"];
-        $tsql = "SELECT Username FROM Admin WHERE AdminID = ?";
-        $params = array($AdminID);
-        $stmt = sqlsrv_query($conn, $tsql, $params);
-
-        if ($stmt === false) {
-            die(print_r(sqlsrv_errors(), true)); // Print SQL Server errors
-        }
-
-        $row_count = sqlsrv_has_rows($stmt);
-        if ($row_count === true) {
-            $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
-            $Username = $row['Username'];
-        } 
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,14 +19,34 @@ $AdminID = $_SESSION["id"];
       href="https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="shortcut icon" type="x-icon" href="../img/ImageHandler (1).png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" type="x-icon" href="img/ImageHandler (1).png" />
 
-    <title>Admin</title>
+    <title>teaching-stuff</title>
   </head>
-  
+
   <body>
-<section class="nav-bar">
+    <!-- main body section -->
+    <div class="main-body">
+      <div class="header">
+        <h2>Student data</h2>
+      </div>
+
+      <label for="file-upload" class="custom-file-upload">
+        Upload Internal Evaluate report </label
+      ><br />
+      <input id="file-upload" type="file" />
+      <label for="file-upload" class="custom-file-upload">
+        Upload External Evaluate report </label
+      ><br />
+      <input id="file-upload" type="file" />
+
+      <div class="input-field">
+        <input type="submit" class="submit" value="Submit" />
+      </div>
+    </div>
+    <!-- Vertical navbar section  -->
+    <section class="nav-bar">
       <div class="menu-toggle">
         <div class="hamburger">
           <span></span>
@@ -54,7 +56,7 @@ $AdminID = $_SESSION["id"];
         <div class="logo-details">
           <span class="logo_name"
             ><img
-              src="../img/GU-Logo-Monochrome-White-1-300x97.png"
+              src="img/GU-Logo-Monochrome-White-1-300x97.png"
               width="150px"
               alt=""
           /></span>
@@ -62,18 +64,16 @@ $AdminID = $_SESSION["id"];
         <ul class="nav-links">
           <li>
             <div class="iocn-link">
-              <a href="/admin/adminhome.html">
+              <a href="adminhome.html">
                 <i class="bx bxs-user-plus bx-sm"></i>
                 <span class="link_name">Home</span>
               </a>
               <i class="bx bxs-chevron-down arrow"></i>
             </div>
             <ul class="sub-menu">
+              <li><a href="profile.html" class="sub-list">Profile</a></li>
               <li>
-                <a href="/admin/profile.html" class="sub-list">Profile</a>
-              </li>
-              <li>
-                <a href="/admin/passwordAdmin.html" class="sub-list"
+                <a href="passwordAdmin.html" class="sub-list"
                   >Change Password</a
                 >
               </li>
@@ -81,28 +81,7 @@ $AdminID = $_SESSION["id"];
           </li>
           <li>
             <div class="iocn-link">
-              <a href="">
-                <i class="bx bxs-user-plus bx-sm"></i>
-                <span class="link_name">Instructors</span>
-              </a>
-              <i class="bx bxs-chevron-down arrow"></i>
-            </div>
-            <ul class="sub-menu">
-              <li>
-                <a href="/admin/addInstructor.html" class="sub-list"
-                  >Add Instructor</a
-                >
-              </li>
-              <li>
-                <a href="coursematrix&ILO.html" class="sub-list"
-                  >Remove Instructor</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="iocn-link">
-              <a href="/admin/coursefilecontent.html">
+              <a href="coursefilecontent.html">
                 <i class="bx bxs-user-plus bx-sm"></i>
                 <span class="link_name">content of course</span>
               </a>
@@ -110,19 +89,17 @@ $AdminID = $_SESSION["id"];
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="/admin/coursereportcheck.html" class="sub-list"
+                <a href="coursereportcheck.html" class="sub-list"
                   >course file checklist</a
                 >
               </li>
               <li>
-                <a href="/admin/coursematrix&ILO.html" class="sub-list"
+                <a href="coursematrix&ILO.html" class="sub-list"
                   >course matrix Topics</a
                 >
               </li>
               <li>
-                <a href="/admin/coursereport.html" class="sub-list"
-                  >course report</a
-                >
+                <a href="coursereport.html" class="sub-list">course report</a>
               </li>
             </ul>
           </li>
@@ -136,12 +113,12 @@ $AdminID = $_SESSION["id"];
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="/admin/Qforstudent.html" class="sub-list"
+                <a href="Qforstudent.html" class="sub-list"
                   >Questionnaires for student</a
                 >
               </li>
               <li>
-                <a href="/admin/Qofvisionstaff.html" class="sub-list"
+                <a href="Qofvisionstaff.html" class="sub-list"
                   >Questionnaires for staff</a
                 >
               </li>
@@ -157,63 +134,45 @@ $AdminID = $_SESSION["id"];
             </div>
             <ul class="sub-menu">
               <li>
-                <a href="/admin/relationshipcourse.html" class="sub-list"
+                <a href="relationshipcourse.html.html" class="sub-list"
                   >RelationShip matrix for courses</a
                 >
               </li>
               <li>
-                <a href="/admin/relationshipNARS.html" class="sub-list"
+                <a href="relationshipNARS.html.html" class="sub-list"
                   >RelationShip matrix for NARS</a
                 >
               </li>
             </ul>
           </li>
           <li>
-            <a href="/admin/ass&ILOs.html">
+            <a href="ass&ILOs.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Assessment & ILOs</span>
             </a>
           </li>
           <li>
-            <a href="/admin/bluerpint.html">
+            <a href="bluerpint.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Blueprint Written</span>
             </a>
           </li>
           <li>
-            <a href="/admin/Lmetthod&ILOs.html">
+            <a href="Lmetthod&ILOs.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Teaching & Learning Matrix</span>
             </a>
           </li>
           <li>
-            <a href="/admin/coursespec.html">
+            <a href="coursespec.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">Course Specification</span>
             </a>
           </li>
           <li>
-            <a href="/admin/arsnars.html">
+            <a href="arsnars.html">
               <i class="bx bx-comment-error"></i>
               <span class="link_name">ARS / NARS</span>
-            </a>
-          </li>
-          <li>
-            <a href="/admin/arsnars.html">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">ARS / NARS</span>
-            </a>
-          </li>
-          <li>
-            <a href="/admin/student&coursedata.html">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">student data</span>
-            </a>
-          </li>
-          <li>
-            <a href="/admin/instructordata.html">
-              <i class="bx bx-comment-error"></i>
-              <span class="link_name">instructor data</span>
             </a>
           </li>
 
@@ -225,7 +184,7 @@ $AdminID = $_SESSION["id"];
               <div class="profile-content">
                 <img
                   style="background-color: white"
-                  src="../img/administrator.png"
+                  src="img/administrator.png"
                   alt="Administrator"
                 />
               </div>
@@ -247,5 +206,44 @@ $AdminID = $_SESSION["id"];
         </ul>
       </div>
     </section>
-    </body>
-    </html>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e) => {
+        let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+        arrowParent.classList.toggle("showMenu");
+      });
+    }
+    const menu_toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    menu_toggle.addEventListener("click", () => {
+      menu_toggle.classList.toggle("is-active");
+      sidebar.classList.toggle("is-active");
+    });
+
+    function showConfirmation() {
+      Swal.fire({
+        title: "Sign out?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Submit the form
+          window.location.href = "index.html";
+        }
+      });
+    }
+  </script>
+</html>
